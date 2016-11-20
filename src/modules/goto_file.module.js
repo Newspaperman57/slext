@@ -1,4 +1,4 @@
-function GotoFileModule(slext) {
+function goto_file_module(slext) {
     var self = this;
 
     this.openFileUnderCursor = function() {

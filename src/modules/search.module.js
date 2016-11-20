@@ -1,4 +1,4 @@
-function SearchModule(slext) {
+function search_module(slext) {
     var self = this;
 
     insertStylerules(`

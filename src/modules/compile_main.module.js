@@ -1,4 +1,4 @@
-function CompileMainModule(slextModule, tabModule) {
+function compile_main_module(slextModule, tabModule) {
 	var self = this;
 
 	$(document).on("click", 'a[ng-click="switchToFlatLayout()"]', function() {
@@ -29,8 +29,8 @@ function CompileMainModule(slextModule, tabModule) {
 	        currentTab.click();
 	        setTimeout(function() {
 	        	if (pdfOpen) slextModule.goToFullScreenPdf();
-	        }, 300);
-	    }, 300);
+	        }, 500);
+	    }, 500);
 	});
 
 

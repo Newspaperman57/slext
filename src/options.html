@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<script src="../js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="moduleConfig.js"></script>
+  	<script src="options.js"></script>
+	<title>Test options page</title>
+	<style type="text/css">
+		body {width: 200px;}
+		h3 {margin-top: 0;}
+		.moduleList {
+		    margin: 0;
+		    list-style: none;
+		    padding: 0;
+		}
+
+		.moduleList > li .shortcut {
+		    float: right;
+		    color: #c1c1c1;
+		    font-size: 8pt;
+		}
+
+		.moduleList li > * {
+		    height: 20px;
+		    line-height: 20px;
+		    margin: 0;
+		    display: inline-block;
+		    float: left;
+		    margin-right: 5px;
+		}
+
+		.moduleList > li {
+		    clear: both;
+		}
+	</style>
+</head>
+<body>
+	<h3>Select enabled modules</h3>
+	<ul class="moduleList">
+	</ul>
+</body>
+</html>

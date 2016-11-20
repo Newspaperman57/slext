@@ -1,4 +1,4 @@
-function TabModule(slext) {
+function tabs_module(slext) {
     if (!$("#sl-tabs").length) {
         $("header").append('<ul id="sl-tabs"></ul><a id="sl-right" class="sl-tab-navigator" href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a><a class="sl-tab-navigator" id="sl-left" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>');
     }
@@ -180,7 +180,7 @@ function TabModule(slext) {
         self.OpenFiles[$(".sl-tab").index(this)].el.click();
     });
 }
-TabModule.prototype.RemoveTab = function(index) {
+tabs_module.prototype.RemoveTab = function(index) {
     if (this.OpenFiles[index].favorite || this.OpenFiles[index].mainfile || this.OpenFiles.length <= 1) return;
     this.OpenFiles.splice(index, 1);
     this.tabs.children().eq(index).remove();
@@ -192,7 +192,7 @@ TabModule.prototype.RemoveTab = function(index) {
     this.OpenFiles[this.CurrentTab].el.click();
 }
 
-TabModule.prototype.AddEditorListener = function() {
+tabs_module.prototype.AddEditorListener = function() {
     var self = this;
     if (typeof self.editorListener == 'undefined' || self.editorListener == null) {
         self.editorListener = $("#editor").keydown(function(event) {
@@ -203,14 +203,14 @@ TabModule.prototype.AddEditorListener = function() {
         });   
     }
 }
-TabModule.prototype.UnbindEditorListener = function() {
+tabs_module.prototype.UnbindEditorListener = function() {
     this.OpenFiles[$(".sl-tab").index($(".sl-tab-active"))].temporary = false;
     this.editorListener.unbind();
     this.editorListener = null;
 }
-TabModule.prototype.OpenFiles = [];
+tabs_module.prototype.OpenFiles = [];
 
-TabModule.prototype.FavoriteCurrentTab = function() {
+tabs_module.prototype.FavoriteCurrentTab = function() {
     var tab = this.tabs.children().eq(this.CurrentTab);
     tab.removeClass("sl-tab-temp");
     this.OpenFiles[this.CurrentTab].temporary = false;
@@ -224,7 +224,7 @@ TabModule.prototype.FavoriteCurrentTab = function() {
     this.SortTabs();
 }
 
-TabModule.prototype.SetMainTabToCurrentTab = function() {
+tabs_module.prototype.SetMainTabToCurrentTab = function() {
     var tab = this.tabs.children().eq(this.CurrentTab);
     tab.removeClass("sl-tab-temp");
     this.OpenFiles[this.CurrentTab].temporary = false;
@@ -238,7 +238,7 @@ TabModule.prototype.SetMainTabToCurrentTab = function() {
     this.SortTabs();
 }
 
-TabModule.prototype.SortTabs = function() {
+tabs_module.prototype.SortTabs = function() {
     var currentIndex = this.CurrentTab;
     for (var i = 0; i < this.OpenFiles.length; i++) {
         this.OpenFiles[i].index = i;
@@ -270,7 +270,7 @@ TabModule.prototype.SortTabs = function() {
     }).appendTo(this.tabs);
 }
 
-TabModule.prototype.AddTab = function(file, temp = false) {
+tabs_module.prototype.AddTab = function(file, temp = false) {
     var newTab = $("<li class='sl-tab'> \
                        <span class='sl-tab-title' title='" + file.path + "'>" + 
                            file.name 
@@ -281,19 +281,19 @@ TabModule.prototype.AddTab = function(file, temp = false) {
     this.tabs.append(newTab);
 }
 
-TabModule.prototype.ReplaceTab = function(index, file) {
+tabs_module.prototype.ReplaceTab = function(index, file) {
     var toReplace = this.tabs.children().eq(index).find(".sl-tab-title").eq(0);
 
     toReplace.attr("title", file.path);
     toReplace.text(file.name);
 }
 
-TabModule.prototype.setActive = function(index) {
+tabs_module.prototype.setActive = function(index) {
     $(".sl-tab").removeClass("sl-tab-active");
     this.tabs.children().eq(index).addClass("sl-tab-active");
 }
 
-TabModule.prototype.updateTabNames = function() {
+tabs_module.prototype.updateTabNames = function() {
     var self = this;
     $(this.tabs.children()).each(function() {
         var tabTitle = $(this).find('.sl-tab-title');

@@ -35,7 +35,7 @@ Dispatcher.prototype.dispatch = function(event, data) {
     }
 }
 
-function Slext() {
+function core_module() {
     var self = this;
     Dispatcher.call(this);
 
@@ -84,11 +84,11 @@ function Slext() {
     }
 }
 
-Slext.prototype = new Dispatcher();
+core_module.prototype = new Dispatcher();
 
-Slext.prototype.constructor = Slext;
+core_module.prototype.constructor = core_module;
 
-Slext.prototype.Files = [];
+core_module.prototype.Files = [];
 
 function indexAllFiles() {
     var allFiles = [];

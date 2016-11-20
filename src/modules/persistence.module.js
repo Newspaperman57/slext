@@ -1,4 +1,4 @@
-function PersistenceModule(slextModule, tabModule) {
+function persistence_module(slextModule, tabModule) {
 	var self = this;
 	$( window ).unload(function() {
 	    self.SaveOpenedTabs();
